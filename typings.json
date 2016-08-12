@@ -1,0 +1,7 @@
+{
+  "name": "aldeed:simple-schema",
+  "version": "1.5.3",
+  "main": "main.d.ts",
+  "homepage": "https://atmospherejs.com/aldeed/simple-schema",
+  "global": true
+}
