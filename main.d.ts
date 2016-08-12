@@ -68,6 +68,6 @@ interface SimpleSchema_Instance {
 
 declare const SimpleSchema: SimpleSchema_Static;
 
-declare module 'mdg:simple-schema' {
+declare module 'meteor/aldeed:simple-schema' {
   export const SimpleSchema: SimpleSchema_Static;
 }
