@@ -1,3 +1,3 @@
 ## Installation
 
-`typings install github:meteor-typings/simple-schema#c58dc4a9e302cd3c3101cb2dcfcc93ff14174c0b --global`
+`typings install github:meteor-typings/simple-schema#08b6a29161a0c35df90686e58fc15edc746cbf8e --global`
