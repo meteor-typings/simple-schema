@@ -41,15 +41,15 @@ interface SimpleSchemaCleanOptions {
   extendedAutoValueContext?: any;
 }
 
-interface SimpleSchemaStatic {
-  new(definition: SimpleSchemaDefinition): SimpleSchemaInstance;
+interface SimpleSchema_Static {
+  new(definition: SimpleSchemaDefinition): SimpleSchema_Instance;
   extendOptions(options: { [option: string]: any }): void;
   addValidator(validator: Function): void;
   messages(messageKeysAndTexts: { [errorKey: string]: string; /** Text for that error **/ } | { exp: RegExp; msg: string; }[]);
   debug(isDebugging: boolean): void;
 }
 
-interface SimpleSchemaInstance {
+interface SimpleSchema_Instance {
   validate(obj: any, options?: ValidateOptions): boolean;
   validateOne(obj, key: string, options: ValidateOptions): boolean;
   clean(obj: any, options?: SimpleSchemaCleanOptions): void;
@@ -66,4 +66,8 @@ interface SimpleSchemaInstance {
   validator(): (...args: any[]) => boolean;
 }
 
-declare var SimpleSchema: SimpleSchemaStatic;
+declare const SimpleSchema: SimpleSchema_Static;
+
+declare module 'mdg:simple-schema' {
+  export const SimpleSchema: SimpleSchema_Static;
+}
