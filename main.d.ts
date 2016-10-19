@@ -13,12 +13,13 @@ interface PropertyAttributes {
   maxCount?: number;
   optional?: boolean;
   allowedValues?: any[];
-  regex?: RegExp;
+  regEx?: RegExp;
   blackbox?: boolean;
   trim?: boolean;
   custom?: Function;
   defaultValue?: any;
   autoValue?: Function;
+  decimal: boolean;
 }
 
 interface SimpleSchemaDefinition {
@@ -47,6 +48,7 @@ interface SimpleSchema_Static {
   addValidator(validator: Function): void;
   messages(messageKeysAndTexts: { [errorKey: string]: string; /** Text for that error **/ } | { exp: RegExp; msg: string; }[]);
   debug(isDebugging: boolean): void;
+  RegEx: { Email: RegExp, Url: RegExp, Domain: RegExp, IP: RegExp };
 }
 
 interface SimpleSchema_Instance {
