@@ -1,5 +1,7 @@
 {
-  "private": true,
+  "name": "meteor-typings/simple-schema",
+  "version": "1.0.0",
+  "description": "Type definitions for aldeed:simple-schema",
   "scripts": {
     "build": "typings bundle --global -o out/main.d.ts"
   },

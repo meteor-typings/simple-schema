@@ -19,7 +19,7 @@ interface PropertyAttributes {
   custom?: Function;
   defaultValue?: any;
   autoValue?: Function;
-  decimal: boolean;
+  decimal?: boolean;
 }
 
 interface SimpleSchemaDefinition {
