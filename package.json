@@ -1,9 +1,10 @@
 {
-  "name": "meteor-typings/simple-schema",
+  "name": "@meteor-typings/simple-schema",
   "version": "1.0.0",
   "description": "Type definitions for aldeed:simple-schema",
   "scripts": {
-    "build": "typings bundle --global -o out/main.d.ts"
+    "build": "typings bundle --global -o out/main.d.ts",
+    "test": "tsc"
   },
   "devDependencies": {
     "tsc": "^1.20150623.0",

@@ -43,22 +43,24 @@ interface SimpleSchemaCleanOptions {
 }
 
 interface SimpleSchema_Static {
-  new(definition: SimpleSchemaDefinition): SimpleSchema_Instance;
+  new(definition: SimpleSchemaDefinition|SimpleSchema_Instance[]): SimpleSchema_Instance;
   extendOptions(options: { [option: string]: any }): void;
   addValidator(validator: Function): void;
-  messages(messageKeysAndTexts: { [errorKey: string]: string; /** Text for that error **/ } | { exp: RegExp; msg: string; }[]);
+  messages(messageKeysAndTexts: { [errorKey: string]: string; /** Text for that error **/ } | { exp: RegExp; msg: string; }[]): void;
   debug(isDebugging: boolean): void;
   RegEx: { Email: RegExp, Url: RegExp, Domain: RegExp, IP: RegExp };
 }
 
 interface SimpleSchema_Instance {
+  messages(messages: Object): void;
+  schema(): SimpleSchema_Static;
   validate(obj: any, options?: ValidateOptions): boolean;
-  validateOne(obj, key: string, options: ValidateOptions): boolean;
+  validateOne(obj: any, key: string, options: ValidateOptions): boolean;
   clean(obj: any, options?: SimpleSchemaCleanOptions): void;
   addValidator(validator: Function): void;
   newContext(): {
     validate(obj: any, options?: ValidateOptions): boolean;
-    validateOne(obj, key: string, options: ValidateOptions): boolean;
+    validateOne(obj: any, key: string, options: ValidateOptions): boolean;
     isValid(): boolean;
     invalidKeys(): { name: string; type: any }[];
     keyIsInvalid(key: string): boolean;
@@ -72,4 +74,5 @@ declare const SimpleSchema: SimpleSchema_Static;
 
 declare module 'meteor/aldeed:simple-schema' {
   export const SimpleSchema: SimpleSchema_Static;
+  type SimpleSchema = SimpleSchema_Instance;
 }
