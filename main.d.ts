@@ -20,6 +20,7 @@ interface PropertyAttributes {
   defaultValue?: any;
   autoValue?: Function;
   decimal?: boolean;
+  index?:number|boolean;
 }
 
 interface SimpleSchemaDefinition {
