@@ -2,7 +2,7 @@
 // Project: https://atmospherejs.com/aldeed/simple-schema
 // Definitions by:  Dave Allen <https://github.com/fullflavedave>
 
-interface PropertyAttributes {
+interface IAldeedSimpleSchemaPropertyAttributes {
   type: any | any[];
   label?: string | Function;
   min?: number | Date;
@@ -24,7 +24,7 @@ interface PropertyAttributes {
 }
 
 interface SimpleSchemaDefinition {
-  [property: string]: PropertyAttributes;
+  [property: string]: IAldeedSimpleSchemaPropertyAttributes;
 }
 
 interface ValidateOptions {
