@@ -67,7 +67,7 @@ interface SimpleSchema_Static {
   addValidator(validator: Function): void;
   messages(messageKeysAndTexts: { [errorKey: string]: string; /** Text for that error **/ } | { exp: RegExp; msg: string; }[]): void;
   debug(isDebugging: boolean): void;
-  RegEx: { Email: RegExp, Url: RegExp, Domain: RegExp, IP: RegExp };
+  RegEx: { Email: RegExp, WeakDomain: RegExp, Url: RegExp, Domain: RegExp, IP: RegExp, IPv4: RegExp, IPv6: RegExp, Id: RegExp, ZipCode: RegExp};
 }
 
 interface SimpleSchema_Instance {
