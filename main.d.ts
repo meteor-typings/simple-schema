@@ -20,7 +20,25 @@ interface IAldeedSimpleSchemaPropertyAttributes {
   defaultValue?: any;
   autoValue?: Function;
   decimal?: boolean;
+
+  /**
+   * Index for collection
+   * Can be true, -1 or 1
+   * @type {number|boolean}
+   */
   index?:number|boolean;
+
+  /**
+   * Unique flag for index
+   * @type {boolean}
+   */
+  unique?: boolean;
+
+  /**
+   * Sparce flag for index
+   * @type {boolean}
+   */
+  sparse?: boolean;
 }
 
 interface SimpleSchemaDefinition {
