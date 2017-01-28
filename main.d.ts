@@ -2,7 +2,7 @@
 // Project: https://atmospherejs.com/aldeed/simple-schema
 // Definitions by:  Dave Allen <https://github.com/fullflavedave>
 
-interface PropertyAttributes {
+interface IAldeedSimpleSchemaPropertyAttributes {
   type: any | any[];
   label?: string | Function;
   min?: number | Date;
@@ -20,10 +20,29 @@ interface PropertyAttributes {
   defaultValue?: any;
   autoValue?: Function;
   decimal?: boolean;
+
+  /**
+   * Index for collection
+   * Can be true, -1 or 1
+   * @type {number|boolean}
+   */
+  index?:number|boolean;
+
+  /**
+   * Unique flag for index
+   * @type {boolean}
+   */
+  unique?: boolean;
+
+  /**
+   * Sparce flag for index
+   * @type {boolean}
+   */
+  sparse?: boolean;
 }
 
 interface SimpleSchemaDefinition {
-  [property: string]: PropertyAttributes;
+  [property: string]: IAldeedSimpleSchemaPropertyAttributes;
 }
 
 interface ValidateOptions {
@@ -48,7 +67,7 @@ interface SimpleSchema_Static {
   addValidator(validator: Function): void;
   messages(messageKeysAndTexts: { [errorKey: string]: string; /** Text for that error **/ } | { exp: RegExp; msg: string; }[]): void;
   debug(isDebugging: boolean): void;
-  RegEx: { Email: RegExp, Url: RegExp, Domain: RegExp, IP: RegExp };
+  RegEx: { Email: RegExp, WeakDomain: RegExp, Url: RegExp, Domain: RegExp, IP: RegExp, IPv4: RegExp, IPv6: RegExp, Id: RegExp, ZipCode: RegExp};
 }
 
 interface SimpleSchema_Instance {
